@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Mange\CategoryController;
+use App\Http\Controllers\Mange\CommentController;
 use App\Http\Controllers\Mange\PostController;
+use App\Http\Controllers\Mange\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,28 +17,28 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 // get all
-Route::get('categories' , [PostController::class , 'allCategories']);
+Route::get('categories' , [CategoryController::class , 'allCategories']);
 Route::get('posts' , [PostController::class , 'allPosts']);
-Route::get('comments' , [PostController::class , 'allComments']);
-Route::get('users' , [PostController::class , 'allUsers']);
-Route::get('users' , [PostController::class , 'allUsers']);
+Route::get('comments' , [CommentController::class , 'allComments']);
+Route::get('users' , [UserController::class , 'allUsers']);
 
 //get one
-Route::get('category/{id}' , [PostController::class , 'category']);
-Route::get('post/{id}' , [PostController::class , 'category']);
-Route::get('comment/{id}' , [PostController::class , 'comment']);
-Route::get('user/{id}', [PostController::class , 'user']);
+Route::get('category/{id}' , [CategoryController::class , 'category']);
+Route::get('post/{id}' , [PostController::class , 'post']);
+Route::get('comment/{id}' , [CommentController::class , 'comment']);
+Route::get('user/{id}', [UserController::class , 'user']);
 
 // create new
-Route::post('addCategory' , [PostController::class , 'createCategory']);
-Route::post('addPost' , [PostController::class , 'createPost']);
-Route::post('addComment' , [PostController::class , 'createComment']);
+Route::post('add-category' , [CategoryController::class , 'store']);
+Route::post('add-post' , [PostController::class , 'store']);
+Route::post('add-comment' , [CommentController::class , 'store']);
 
 // update
-Route::put('updateCategory/{id}' , [PostController::class , 'updateCategory']);
-Route::put('updatePost/{id}' , [PostController::class , 'updatePost']);
-Route::put('updateComment/{id}' , [PostController::class , 'updateComment']);
+Route::put('update-category/{id}' , [CategoryController::class , 'update']);
+Route::put('update-post/{id}' , [PostController::class , 'update']);
+Route::put('update-comment/{id}' , [CommentController::class , 'update']);
 
 
 
