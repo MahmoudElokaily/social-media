@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Mange;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
@@ -9,23 +10,23 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function allCategories(){
+    public function index(){
         $categories = Category::all();
-        return $categories;
+        return Helper::response(data: $categories ,message: 'all Categories', status: 201);
     }
 
     public function category($category_id){
         $category = Category::find($category_id)->load('posts');
-        return $category;
+        return Helper::response(data: $category , message: "One category with his posts",status: 201);
     }
 
     public function store(CategoryRequest $request){
         $validated = $request->validated();
-        Category::create([
+        $category = Category::create([
             'name' => $validated['name'],
             'description' => $validated['description'],
         ]);
-        return "Category added Successfully";
+        return Helper::response(data: $category ,message: "Category added Successfully",status: 201);
     }
 
     public function update(CategoryRequest $request , $category_id){
@@ -34,6 +35,6 @@ class CategoryController extends Controller
             return "this is no category with this id";
         $validated = $request->validated();
         $category->update($validated);
-        return "Category is updated";
+        return Helper::response(data: $category ,message: "Category is updated",status: 201);
     }
 }

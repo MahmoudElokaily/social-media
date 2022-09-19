@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 // get all
-Route::get('categories' , [CategoryController::class , 'allCategories']);
-Route::get('posts' , [PostController::class , 'allPosts']);
-Route::get('comments' , [CommentController::class , 'allComments']);
-Route::get('users' , [UserController::class , 'allUsers']);
+Route::get('categories' , [CategoryController::class , 'index']);
+Route::get('posts' , [PostController::class , 'index']);
+Route::get('comments' , [CommentController::class , 'index']);
+Route::get('users' , [UserController::class , 'index']);
 
 //get one
 Route::get('category/{id}' , [CategoryController::class , 'category']);
