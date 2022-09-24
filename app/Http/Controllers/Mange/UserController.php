@@ -17,6 +17,7 @@ class UserController extends Controller
     public function user($user_id){
         $user = User::find($user_id);
         return Helper::response(data: $user , message: "One user",status: 201);
-
     }
+
+
 }

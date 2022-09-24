@@ -27,6 +27,7 @@ class PostsRequest extends FormRequest
             'content' => 'string|required|max:255',
             'category_id' => 'integer',
             'user_id' => 'integer',
+            'image' => 'file',
         ];
     }
 }

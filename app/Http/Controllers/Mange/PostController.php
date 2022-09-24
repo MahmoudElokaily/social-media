@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Mange;
 
 use App\Helpers\Helper;
+use App\Helpers\SaveImage;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
-use App\Http\Requests\CommentRequest;
 use App\Http\Requests\PostsRequest;
 use App\Models\Category;
-use App\Models\Comment;
 use App\Models\Post;
-use App\Models\User;
-use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -20,18 +17,15 @@ class PostController extends Controller
         return Helper::response(data: $posts ,message: 'all Posts', status: 201);
     }
 
-    public function post($post_id){
+    public function show($post_id){
         $post = Post::find($post_id)->load('comments');
         return Helper::response(data: $post , message: "One post with his comments",status: 201);
     }
 
     public function store(PostsRequest $request){
         $validated = $request->validated();
-        $post = Post::create([
-            'content' => $validated['content'],
-            'category_id' => $validated['category_id'],
-            'user_id' => $validated['user_id'],
-        ]);
+        $validated['image'] = SaveImage::SaveImage('image' , 'images/posts');
+        $post = Post::create($validated);
         return Helper::response(data: $post ,message: "Post added Successfully",status: 201);
     }
 
@@ -44,6 +38,11 @@ class PostController extends Controller
         return Helper::response(data: $post ,message: "Post is updated",status: 201);
     }
 
+    public function destroy($id)
+    {
+        Post::destroy($id);
+        return Helper::response(data: $id , message: "Post is deleted" , status: 201);
+    }
 
 }
 

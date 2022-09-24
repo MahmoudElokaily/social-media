@@ -27,6 +27,7 @@ class CommentRequest extends FormRequest
             'content' => 'string|required|max:255',
             'post_id' => 'integer',
             'user_id' => 'integer',
+            'image' => 'file',
         ];
     }
 }

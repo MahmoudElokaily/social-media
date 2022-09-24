@@ -18,28 +18,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// get all
-Route::get('categories' , [CategoryController::class , 'index']);
-Route::get('posts' , [PostController::class , 'index']);
-Route::get('comments' , [CommentController::class , 'index']);
-Route::get('users' , [UserController::class , 'index']);
-
-//get one
-Route::get('category/{id}' , [CategoryController::class , 'category']);
-Route::get('post/{id}' , [PostController::class , 'post']);
-Route::get('comment/{id}' , [CommentController::class , 'comment']);
-Route::get('user/{id}', [UserController::class , 'user']);
-
-// create new
-Route::post('add-category' , [CategoryController::class , 'store']);
-Route::post('add-post' , [PostController::class , 'store']);
-Route::post('add-comment' , [CommentController::class , 'store']);
-
-// update
-Route::put('update-category/{id}' , [CategoryController::class , 'update']);
-Route::put('update-post/{id}' , [PostController::class , 'update']);
-Route::put('update-comment/{id}' , [CommentController::class , 'update']);
-
+//// get all
+//Route::get('categories' , [CategoryController::class , 'index']);
+//Route::get('posts' , [PostController::class , 'index']);
+//Route::get('comments' , [CommentController::class , 'index']);
+//Route::get('users' , [UserController::class , 'index']);
+//
+////get one
+//Route::get('category/{id}' , [CategoryController::class , 'category']);
+//Route::get('post/{id}' , [PostController::class , 'post']);
+//Route::get('comment/{id}' , [CommentController::class , 'comment']);
+//Route::get('user/{id}', [UserController::class , 'user']);
+//
+//// create new
+//Route::post('add-category' , [CategoryController::class , 'store']);
+//Route::post('add-post' , [PostController::class , 'store']);
+//Route::post('add-comment' , [CommentController::class , 'store']);
+//
+//// update
+//Route::put('update-category/{id}' , [CategoryController::class , 'update']);
+//Route::put('update-post/{id}' , [PostController::class , 'update']);
+//Route::put('update-comment/{id}' , [CommentController::class , 'update']);
+//
 
 
 

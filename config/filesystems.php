@@ -44,6 +44,30 @@ return [
             'throw' => false,
         ],
 
+        'categories' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/categories/',
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'posts' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/posts/',
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'comments' => [
+            'driver' => 'local',
+            'root' => base_path() . 'public/images/comments/',
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
