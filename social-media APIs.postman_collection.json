@@ -6,15 +6,15 @@
 	},
 	"item": [
 		{
-			"name": "categories",
+			"name": "category",
 			"item": [
 				{
-					"name": "all Categories",
+					"name": "all category",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/categories",
+							"raw": "http://127.0.0.1:8000/api/category",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -25,7 +25,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"categories"
+								"category"
 							]
 						}
 					},
@@ -67,22 +67,28 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "name",
-									"value": "new Cat",
+									"value": "category 41",
 									"type": "default"
 								},
 								{
 									"key": "description",
-									"value": "test",
-									"type": "default"
+									"value": "des",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/random imges/shop_11.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/add-category",
+							"raw": "http://127.0.0.1:8000/api/category",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -93,7 +99,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"add-category"
+								"category"
 							]
 						}
 					},
@@ -111,23 +117,17 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "name",
-									"value": "new Cat3",
+									"value": "cat 23",
 									"type": "default"
-								},
-								{
-									"key": "description",
-									"value": "test",
-									"type": "default",
-									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/update-category/15",
+							"raw": "http://127.0.0.1:8000/api/category/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -138,8 +138,32 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"update-category",
-								"15"
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/category/10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"category",
+								"10"
 							]
 						}
 					},
@@ -179,7 +203,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/post/2",
+							"raw": "http://127.0.0.1:8000/api/posts/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -190,7 +214,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"post",
+								"posts",
 								"2"
 							]
 						}
@@ -209,27 +233,32 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "content",
-									"value": "test 10",
+									"value": "new one with image 2",
 									"type": "default"
 								},
 								{
 									"key": "category_id",
-									"value": "1",
+									"value": "2",
 									"type": "default"
 								},
 								{
 									"key": "user_id",
 									"value": "3",
 									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/random imges/category_img_03.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/add-post",
+							"raw": "http://127.0.0.1:8000/api/posts",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -240,7 +269,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"add-post"
+								"posts"
 							]
 						}
 					},
@@ -274,7 +303,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/update-post/5",
+							"raw": "http://127.0.0.1:8000/api/posts/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -285,8 +314,32 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"update-post",
-								"5"
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/posts/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"2"
 							]
 						}
 					},
@@ -326,7 +379,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/comment/2",
+							"raw": "http://127.0.0.1:8000/api/comments/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -337,8 +390,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"comment",
-								"2"
+								"comments",
+								"1"
 							]
 						}
 					},
@@ -356,11 +409,11 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "content",
-									"value": "new coment",
+									"value": "new one with image",
 									"type": "default"
 								},
 								{
@@ -372,11 +425,16 @@
 									"key": "user_id",
 									"value": "3",
 									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/random imges/shop_01.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/add-comment",
+							"raw": "http://127.0.0.1:8000/api/comments",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -387,7 +445,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"add-comment"
+								"comments"
 							]
 						}
 					},
@@ -402,26 +460,31 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "default"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "default"
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "content",
-									"value": "old comment",
+									"value": "mahmoud",
 									"type": "default"
 								},
 								{
-									"key": "description",
-									"value": "test",
-									"type": "default",
-									"disabled": true
+									"key": "image",
+									"type": "file",
+									"src": "/E:/random imges/product_single_01.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/update-comment/6",
+							"raw": "http://127.0.0.1:8000/api/comments/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -432,8 +495,32 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"update-comment",
-								"6"
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"2"
 							]
 						}
 					},
