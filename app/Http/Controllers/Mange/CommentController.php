@@ -18,7 +18,7 @@ class CommentController extends Controller
     }
 
     public function show($comment_id){
-        $comment = Comment::find($comment_id);
+        $comment = Comment::findorFail($comment_id);
         return Helper::response(data: $comment , message: "One comment",status: 201);
 
     }
@@ -31,7 +31,7 @@ class CommentController extends Controller
     }
 
     public function update(CommentRequest $request , $comment_id){
-        $comment = Comment::find($comment_id);
+        $comment = Comment::findorFail($comment_id);
         if (!$comment)
             return "this is no comment with this id";
         $validated = $request->validated();

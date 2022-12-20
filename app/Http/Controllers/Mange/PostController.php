@@ -18,7 +18,7 @@ class PostController extends Controller
     }
 
     public function show($post_id){
-        $post = Post::find($post_id)->load('comments');
+        $post = Post::findorFail($post_id)->load('comments');
         return Helper::response(data: $post , message: "One post with his comments",status: 201);
     }
 
@@ -30,7 +30,7 @@ class PostController extends Controller
     }
 
     public function update(PostsRequest $request , $post_id){
-        $post = Post::find($post_id);
+        $post = Post::findorFail($post_id);
         if (!$post)
             return "this is no post with this id";
         $validated = $request->validated();

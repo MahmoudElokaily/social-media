@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\Mange\CategoryController;
-use App\Http\Controllers\Mange\CommentController;
-use App\Http\Controllers\Mange\PostController;
-use App\Http\Controllers\Mange\UserController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

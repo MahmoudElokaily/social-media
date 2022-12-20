@@ -16,7 +16,7 @@ class CategoryController extends Controller
     }
 
     public function show($category_id){
-        $category = Category::find($category_id)->load('posts');
+        $category = Category::findorFail($category_id)->load('posts');
         return Helper::response(data: $category , message: "One category with his posts",status: 201);
     }
 
@@ -28,7 +28,7 @@ class CategoryController extends Controller
     }
 
     public function update(CategoryRequest $request , $category_id){
-        $category = Category::find($category_id);
+        $category = Category::findorFail($category_id);
         if (!$category)
             return "this is no category with this id";
         $validated = $request->validated();

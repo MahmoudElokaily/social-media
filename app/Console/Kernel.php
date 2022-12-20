@@ -16,6 +16,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+//        $schedule->command('db:backup')->everyFiveMinutes();
+        $schedule->command('queue:restart')->everyFiveMinutes();
     }
 
     /**
@@ -26,6 +28,7 @@ class Kernel extends ConsoleKernel
     protected function commands()
     {
         $this->load(__DIR__.'/Commands');
+        "App\Console\Commands\DbBackup";
 
         require base_path('routes/console.php');
     }
